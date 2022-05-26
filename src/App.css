@@ -41,7 +41,7 @@ body{
 
 
 .form-container{
-  width: 40%;    
+  width: 60%;    
   margin: auto; 
   border-radius: 5px;
   margin-top: 80px;
@@ -60,10 +60,12 @@ body{
 }
 
 .form{
+  width: 100%;
   text-align: left;
 }
+
 .input-container{
-  padding: 20px;
+  padding: 20px 0px;
   margin-left: 30px;
   display: flex;
   flex-direction: column;  
@@ -73,10 +75,11 @@ body{
   text-align: center;
 }
 
-.buttons_form{
-  display:block;
-  text-align: center;
-  margin: auto;
+.buttons_form{   
+ display: block;
+ text-align: center;
+ margin-top: 20px;
+ margin-bottom: 0;
 }
 
 .button{  
@@ -84,7 +87,7 @@ body{
   width: 100px;
   height: 50px;  
   border-radius: 5px;
-  margin-bottom: 50px;
+  
   background-color: transparent;
   border-color: 3px solid #000;
   color:#000; 
@@ -163,7 +166,12 @@ ul > h1{
 }
 
 .tittle_users{  
-  text-align: center;
+  text-align: center;  
+}
+
+.list_tittle{
+  font-weight: bolder;
+  font-style: oblique;
 }
 
 .correo, .cumpleaños{
@@ -171,12 +179,14 @@ ul > h1{
   height: auto;
   padding: 10px;
   text-align: justify;
-  word-wrap: break-word;
+  word-wrap: break-word;  
 }
+
 
 .card{  
   display: flex;  
   flex-direction: column; 
+  align-self: center;
   width:30%;
   color: #000;
   background-color: #f5f3f4;
@@ -221,7 +231,7 @@ ul > h1{
 
 .modal{  
   background-color: #f5f3f4;
-  padding: 50px;
+  padding: 20px;
   border-radius: 5px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
   position: relative;
@@ -244,6 +254,13 @@ ul > h1{
   .correo, .cumpleaños{        
     font-size: 1rem;
   }
+
+  .input-container{
+    padding: 10px;
+    margin-left: 30px;    
+  }
+  
+
 }
 
 @media only screen and (max-width:756px){
