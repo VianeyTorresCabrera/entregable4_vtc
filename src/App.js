@@ -1,23 +1,57 @@
-import logo from './logo.svg';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import './App.css';
+import UsersForm from './components/UsersForm';
+import UsersList from './components/UsersList';
+import addContact from './img/addContact.png';
 
 function App() {
+
+  const [users, setUsers] = useState([]);
+  const [userSelected, setUserSelected] = useState(null); 
+
+  useEffect (()=>{
+      axios
+          .get('https://users-crud1.herokuapp.com/users/')
+          .then(res => setUsers(res.data));
+  },[]);
+
+  const getUsers = () =>{
+    axios
+          .get('https://users-crud1.herokuapp.com/users/')
+          .then(res => setUsers(res.data));
+  }
+
+
+  const selectUser = user => setUserSelected(user)  
+   
+
+  const deselectUser = () => setUserSelected(null)
+
+  const removeUser = (id) =>{
+    axios 
+        .delete(`https://users-crud1.herokuapp.com/users/${id}/`)
+        .then(()=>getUsers())
+
+  }
+
+  const [showModal, setShowModal] = useState(false);
+  
+  const closeModal = () => setShowModal(false)
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <div className='btn_newUser'>
+        {showModal && <UsersForm 
+          getUsers={getUsers} 
+          userSelected={userSelected} 
+          deselectUser={deselectUser} 
+          closeModal={closeModal}/>}        
+        <button  onClick={() => setShowModal(true)} className='button_addContact'><img src={addContact} alt="" title='Add new user'/></button>
+      </div>     
+      <UsersList users={users} selectUser={selectUser} removeUser={removeUser} />
     </div>
   );
 }

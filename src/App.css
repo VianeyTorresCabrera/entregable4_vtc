@@ -1,38 +1,263 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;    
+}
+
+
+body{
+  background:url('./img/white.jpg');
+  
+}
+
+
+.App{
+  width: 90%;    
+  margin: auto;
+  align-content: center;
+  text-align: center; 
+}
+
+.button_addContact{
+  position: fixed;
+  width: auto;
+  padding: 10px;
+  border: transparent;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+  cursor: pointer;
+  top: 2%;
+  left: 1%;
+  float: left;
+}
+
+.button_addContact:hover{
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+  transform: translateY(-2%);
+}
+
+
+
+
+.form-container{
+  width: 40%;    
+  margin: auto; 
+  border-radius: 5px;
+  margin-top: 80px;
+  margin-bottom: 100px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.7);
+  text-align: center;    
+}
+
+
+
+.form_tittle{
+  padding-top: 20px;
+  color:#000;
+  font-size: 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form{
+  text-align: left;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-container{
+  padding: 20px;
+  margin-left: 30px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column;  
+}
+
+.button-container{
+  text-align: center;
+}
+
+.buttons_form{
+  display:block;
+  text-align: center;
+  margin: auto;
+}
+
+.button{  
+  margin: 10px;
+  width: 100px;
+  height: 50px;  
+  border-radius: 5px;
+  margin-bottom: 50px;
+  background-color: transparent;
+  border-color: 3px solid #000;
+  color:#000; 
+  cursor: pointer; 
+  transition: all 400ms ease;      
+}
+
+.button:hover{
+  background: #000;
+  color: #fff;
+}
+
+
+
+label{
+  display: block;
+  padding-bottom: 10px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.label_check{
+  display: inline;
+  padding-bottom: 0;
+}
+
+.input_check{
+  display: inline;
+  width: auto;
+}
+
+input {
+  display: block;
+  width: 90%;
+}
+
+h1{
+  color:#000;
+}
+
+h2{
+color: #001d3d;
+font-size: 2rem;
+}
+
+h3{
+  color: #000;
+}
+
+ul > h1{
+  margin-top: 20px;
+}
+
+.user_name{
+  word-wrap: break-word;
+}
+
+.card_container{   
+  margin-top: 20px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;    
+  width: 100%;
+ 
+}
+
+.button_list{
+  width: 100px;
+  height: 50px;
+  border: transparent; 
+}
+
+.button_list:hover{
+ transform: translateY(-4%);
+}
+
+.tittle_users{  
+  text-align: center;
+}
+
+.correo, .cumpleaños{
+  width: 95%;
+  height: auto;
+  padding: 10px;
+  text-align: justify;
+  word-wrap: break-word;
+}
+
+.card{  
+  display: flex;  
+  flex-direction: column; 
+  width:30%;
+  color: #000;
+  background-color: #f5f3f4;
+  margin-right: 20px;
+  border-radius: 6px;
+  border:3px solid #f5f3f4;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.4);
+  margin-bottom: 20px;
+  padding: 15px;
+  transition: all 400ms ease;
+}
+
+.card:hover{
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.8);
+  transform: translateY(-3%);
+}
+
+.button_list_container{
+   margin-right: 20px;  
+}
+
+.button_list{
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: 0px;
+  cursor: pointer;
+}
+
+
+.modal_container{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.modal{  
+  background-color: #f5f3f4;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 9;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.overlay{  
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media only screen and (max-width:1246px){
+  .user_name{
+    font-size: 1.5rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .correo, .cumpleaños{        
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width:756px){
+  .card{
+    width: 40%;
+  }
+  .correo, .cumpleaños{        
+    font-size: 0.8rem;
+  }
+}
+
+
+@media only screen and (max-width:580px){
+  .card{
+    width: 70%;
   }
 }
